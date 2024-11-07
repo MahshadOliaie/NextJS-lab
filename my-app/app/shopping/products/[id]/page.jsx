@@ -1,9 +1,14 @@
+import { notFound } from "next/navigation"
 
 
 
-async function ProductDetails({params}){
+async function ProductDetails({ params }) {
     const { id } = await params
-    return(
+
+    if (id > 10) {
+        notFound()
+    }
+    return (
         <h1>this is product {id}</h1>
     )
 }
